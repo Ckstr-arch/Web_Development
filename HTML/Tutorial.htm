@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: plum">
+    <h1 style=" color: purple; text-align: center;">Visits of Sri Lanka</h1>
+    <h2 style="color: red;">Popular Destinations</h2>
+    <ol type="A">
+        <li>Western Province</li>   
+        <ul type="disc">
+            <li>Colombo</li>
+            <li>Negombo</li>
+        </ul>
+        <li>Central Province</li>
+        <ul type="disc">
+            <li>Kandy</li>
+            <li>Nuwara Eliya</li>
+        </ul>
+    </ol>
+    <h2 style="color: #000">Tour Highlights</h2>
+    <table border="1">
+        <tr>
+            <th rowspan="2"> Location</th>
+            <th colspan="2">Lists</th>
+            <th>Images</th>
+            <th>Video</th>
+        </tr>
+        <tr>
+            <td><ul type="circle"><li>Temple of the Tooth</li><li>Galle Fort</li></ul></td>
+            <td><ol type="circle"><li>Sigiriya </li><li>Ella</li></ol></td>
+            <td><img src="" alt="Temple of the Tooth" style="width: 150px; height: auto; border: 3px solid black;"></td>
+            <td><video src="#" controls style="width: 150px; height: auto"></video></td>
+        </tr>
+        <tr>
+            <td> Anuradhapura</td>
+            <td colspan="2">Ancient city with rich Buddhist heritage</td>
+            <td><img src="" alt="Anuradhapura" style="width: 150px; height: auto; border: 3px solid black;"></td>
+            <td>Visited on: 2023-10-15</td>
+        </tr>
+    </table>
+    <p>Learn more at: <a href="https://www.srilanka.travel/">Sri Lanka Tourism Official Site</a></p>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Sri Lanka 🇱🇰</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #071f1b;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(4, 35, 29, 0.75),
+                    rgba(4, 35, 29, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1586613830615-6e2e0c1c5c3d?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            color: #ffd166;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #e8f5e9;
+        }
+
+        .hero span {
+            color: #ff8c42;
+            font-weight: bold;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 50px auto;
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #ffd166;
+        }
+
+        .section-title p {
+            color: #b7cbc5;
+            margin-top: 5px;
+        }
+
+        /* DESTINATION CARDS */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        .destination-card {
+            background: #0d3029;
+            border: 1px solid #205247;
+            border-radius: 18px;
+            padding: 28px;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+            border-color: #ffd166;
+            box-shadow: 0 15px 35px rgba(255, 209, 102, 0.15);
+        }
+
+        .destination-card h3 {
+            color: #ff8c42;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .destination-card ul {
+            list-style: none;
+        }
+
+        .destination-card li {
+            padding: 7px 0;
+            color: #d7e8e3;
+        }
+
+        .destination-card li::before {
+            content: "📍 ";
+        }
+
+        /* TABLE */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 100%;
+            min-width: 750px;
+            border-collapse: collapse;
+            background: #0d3029;
+            overflow: hidden;
+        }
+
+        th {
+            background: #136f63;
+            color: #ffd166;
+            padding: 18px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 18px;
+            border: 1px solid #205247;
+            color: #dcebe7;
+            text-align: center;
+        }
+
+        tr:hover td {
+            background: #123b33;
+        }
+
+        td ul,
+        td ol {
+            text-align: left;
+            padding-left: 25px;
+        }
+
+        /* IMAGES */
+        td img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #ffd166;
+            transition: 0.3s;
+        }
+
+        td img:hover {
+            transform: scale(1.08);
+        }
+
+        /* VIDEO */
+        td video {
+            width: 160px;
+            border-radius: 12px;
+            border: 2px solid #ff8c42;
+        }
+
+        /* INFO BOX */
+        .info-box {
+            margin-top: 50px;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #136f63,
+                #0d3029
+            );
+
+            border: 1px solid #2d7d70;
+        }
+
+        .info-box h2 {
+            color: #ffd166;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #dcebe7;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #071f1b;
+            background: #ffd166;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff8c42;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 70px;
+            padding: 25px;
+            text-align: center;
+            background: #041511;
+            color: #8da9a2;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            .hero {
+                min-height: 45vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .destination-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Explore Sri Lanka 🇱🇰</h1>
+
+            <p>
+                Discover ancient cities, misty mountains,
+                golden beaches and unforgettable adventures.
+                <span>Paradise is waiting.</span>
+            </p>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+    
+        <section>
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>Places you definitely don't want to miss.</p>
+            </div>
+
+            <div class="destinations">
+
+                <div class="destination-card">
+                    <h3>🌴 Western Province</h3>
+
+                    <ul>
+                        <li>Colombo</li>
+                        <li>Negombo</li>
+                    </ul>
+                </div>
+
+                <div class="destination-card">
+                    <h3>⛰️ Central Province</h3>
+
+                    <ul>
+                        <li>Kandy</li>
+                        <li>Nuwara Eliya</li>
+                    </ul>
+                </div>
+
+                <div class="destination-card">
+                    <h3>🌊 Southern Escape</h3>
+
+                    <ul>
+                        <li>Galle</li>
+                        <li>Mirissa</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section>
+
+            <div class="section-title">
+                <h2>Tour Highlights</h2>
+                <p>A quick look at some iconic Sri Lankan experiences.</p>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <tr>
+                        <th>Location</th>
+                        <th colspan="2">Highlights</th>
+                        <th>Images</th>
+                        <th>Video</th>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <strong>Kandy</strong>
+                        </td>
+
+                        <td>
+                            <ul>
+                                <li>Temple of the Tooth</li>
+                                <li>Galle Fort</li>
+                            </ul>
+                        </td>
+
+                        <td>
+                            <ol>
+                                <li>Sigiriya</li>
+                                <li>Ella</li>
+                            </ol>
+                        </td>
+
+                        <td>
+                            <img
+                                src="https://images.unsplash.com/photo-1586613830615-6e2e0c1c5c3d?auto=format&fit=crop&w=500&q=80"
+                                alt="Sri Lankan Temple">
+                        </td>
+
+                        <td>
+                            <video controls>
+                                <source src="#" type="video/mp4">
+                                Your browser does not support video.
+                            </video>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>Anuradhapura</strong>
+                        </td>
+
+                        <td colspan="2">
+                            Ancient city with rich Buddhist heritage.
+                        </td>
+
+                        <td>
+                            <img
+                                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=500&q=80"
+                                alt="Ancient Sri Lankan Heritage">
+                        </td>
+
+                        <td>
+                            📅 Visited on:<br>
+                            <strong>2023-10-15</strong>
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="info-box">
+
+            <h2>Ready to Explore? 🌴</h2>
+
+            <p>
+                From Colombo's busy streets to Ella's mountains,
+                Sri Lanka has something for everyone.
+            </p>
+
+            <a
+                class="btn"
+                href="https://www.srilanka.travel/"
+                target="_blank">
+                Visit Sri Lanka Tourism →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>🇱🇰 Made with ❤️ for Sri Lanka</p>
+    </footer>
+
+</body>
+</html>
+-->
