@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .inline-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .inline-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Student Registration Form</h1>
+        <!-- Student Name -->
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <!-- Age -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <!-- Password -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <!-- Gender -->
+        <label>Gender:</label>
+        <div class="inline-group">
+            <label for="male"><input type="radio" id="male" name="gender" value="male" required> Male</label>
+            <label for="female"><input type="radio" id="female" name="gender" value="female" required> Female</label>
+        </div>
+        <!-- Course Selection -->
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" required>
+           <option value=""> Computer Science</option>
+           <option value=""> Information Technology</option>
+           <option value=""> Software Engineering</option>
+           <option value=""> Data Science</option>
+        </select>
+        <br><br>
+        <!-- Skills -->
+        <label>Skills:</label>
+        <div class="inline-group">
+            <label for="html"><input type="checkbox" id="html" name="skills" value="html"> HTML</label>
+            <label for="css"><input type="checkbox" id="css" name="skills" value="css"> CSS</label>
+            <label for="javascript"><input type="checkbox" id="javascript" name="skills" value="javascript"> JavaScript</label>
+            <label for="python"><input type="checkbox" id="python" name="skills" value="python"> Python</label>
+        </div>
+        </select>
+        <br><br>
+        <!-- Address -->
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+        <br><br>
+        <!-- Submit Button -->
+        <input type="submit" value="Register">
+        <!-- Reset Button -->
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>

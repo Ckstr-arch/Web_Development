@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d5771faa;
+            padding: 20px;
+        }
+        fieldset{
+            border:none;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #b92e0f;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color:coral
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;     
+        border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }       
+    </style>
+    <div name="form">
+    <form>
+        <fieldset>
+            <legend style="font-size: 20px; text-align: center;">Asylum Registration</legend>
+        <!--Full Name-->
+        <label for="Full Name">Full Name:</label>
+        <input type="text" name="Full Name" required><br><br>
+
+        <!--Email-->
+        <label for="Email">Email:</label>
+        <input type="email" name="Email" required><br><br>
+
+        <!--Password-->
+        <label for="Password">Password:</label>
+        <input type="password" name="Password" required><br><br>
+
+        <!--Gender-->
+        <label for="Gender">Gender:</label>
+        <input type="radio" name="Gender" value="Male" required> Male
+        <input type="radio" name="Gender" value="Female" required> Female<br><br>
+
+        <!--Preferences-->
+        <label for="Preferences">Preferences:</label>
+        <select name="Selection" >
+            <option value="Concert">Concert</option>
+            <option value="Workshop">Workshop</option>
+            <option value="classes">Classes</option>
+        </select><br><br>
+
+        <label for="Additional_info">Additional Information:</label>
+        <textarea name="more_info" rows="7" cols="40"></textarea>
+        <br><br>
+
+        <!--Submit Button-->
+        <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    </div>
+</body>
+</html>

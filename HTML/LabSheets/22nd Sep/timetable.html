@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            font-weight: bold;
+        }
+        #cap{
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+            color:green;
+
+        }
+        th{
+            background-color:springgreen;
+        }
+        main{
+            max-width: 100%;
+        }
+        @media (max-width: 600px) {
+        main { max-width: 80%; }
+        .row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <h1 id="cap">My Weekly Class Timetable</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>9.00–10.00</th>
+                <th>10.00–11.00</th>
+                <th>11.00–12.00</th>
+                <th>1.00–3.00</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td colspan="2">Programming</td>
+                <td>Mathematics</td>
+                <td>Web Development</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>Database</td>
+                <td>English</td>
+                <td>Mathematics</td>
+                <td>Web Development</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>Programming</td>
+                <td>Database</td>
+                <td>English</td>
+                <td>Lab Session</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td colspan="2">Lab Session</td>
+                <td>Mathematics</td>
+                <td>Database</td>
+            </tr>
+        </tbody>
+    </table>
+  </main>
+</body>
+</html>

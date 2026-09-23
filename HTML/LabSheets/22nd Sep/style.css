@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body {
+    font-family: Arial, sans-serif, Helvetica;
+    background-color: #f0f0f0;
+    color: #1a1a2e;
+    border: 0;
+}
+.student-results {
+    max-width: 1100px;
+    margin: 10% ;
+    padding: 48px 24px 64px;
+    background-color: #f3eeee;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+}
+.tab{
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    
+}
+#heading {
+    text-align: center;
+    padding: 5px;
+    background:teal;
+    color: #ffffff;
+}

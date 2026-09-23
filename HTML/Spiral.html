@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypnosis Spiral</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: none;
+        }
+
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .center-dot {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            transform: translate(-50%, -50%);
+            background: #000;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+
+<canvas id="spiral"></canvas>
+<div class="center-dot"></div>
+
+<script>
+const canvas = document.getElementById("spiral");
+const ctx = canvas.getContext("2d");
+
+let width, height;
+let animationTime = 0;
+
+function resize() {
+    const dpr = window.devicePixelRatio || 1;
+
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+window.addEventListener("resize", resize);
+resize();
+
+function drawSpiral() {
+    ctx.clearRect(0, 0, width, height);
+
+    const cx = width / 2;
+    const cy = height / 2;
+
+    const maxRadius = Math.sqrt(
+        width * width +
+        height * height
+    ) / 2;
+
+    /*
+        Number of black/white turns.
+        Higher = tighter spiral.
+    */
+    const turns = 22;
+
+    /*
+        Animation speed.
+        Change this to make the hypnosis
+        slower/faster.
+    */
+    const rotation = animationTime * 0.025;
+
+    /*
+        Draw many tiny rings whose radius
+        changes according to the angle.
+    */
+    const step = 2;
+
+    ctx.beginPath();
+
+    for (let r = 0; r < maxRadius; r += step) {
+
+        const angle =
+            r * 0.045 +
+            rotation;
+
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+
+        if (r === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    }
+
+    /*
+        Instead of a simple line, create the
+        classic alternating black/white effect
+        using repeated spiral strokes.
+    */
+
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#fff";
+    ctx.stroke();
+
+    /*
+        Additional black spiral offset creates
+        the strong black/white hypnotic pattern.
+    */
+    ctx.beginPath();
+
+    for (let r = 1; r < maxRadius; r += step) {
+
+        const angle =
+            r * 0.045 +
+            rotation +
+            Math.PI;
+
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+
+        if (r === 1) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    }
+
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+
+    /*
+        Strong central rings.
+    */
+    for (let i = 0; i < 5; i++) {
+
+        const radius =
+            8 +
+            i * 12 +
+            Math.sin(animationTime * 0.04) * 3;
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle =
+            i % 2 === 0 ? "#fff" : "#000";
+
+        ctx.stroke();
+    }
+
+    animationTime++;
+
+    requestAnimationFrame(drawSpiral);
+}
+
+drawSpiral();
+</script>
+
+</body>
+</html>

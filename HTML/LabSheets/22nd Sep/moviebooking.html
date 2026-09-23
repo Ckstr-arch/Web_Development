@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking | Movies &copy; 2026</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            border: 0;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(90deg, #05050a 0.000%, #05050a 7.692%, #090a0e calc(7.692% + 1px), #090a0e 15.385%, #0d0e12 calc(15.385% + 1px), #0d0e12 23.077%, #121316 calc(23.077% + 1px), #121316 30.769%, #16171a calc(30.769% + 1px), #16171a 38.462%, #1a1b1e calc(38.462% + 1px), #1a1b1e 46.154%, #1e1f22 calc(46.154% + 1px), #1e1f22 53.846%, #222326 calc(53.846% + 1px), #222326 61.538%, #26272a calc(61.538% + 1px), #26272a 69.231%, #292a2d calc(69.231% + 1px), #292a2d 76.923%, #2c2d30 calc(76.923% + 1px), #2c2d30 84.615%, #2e2f33 calc(84.615% + 1px), #2e2f33 92.308%, #303135 calc(92.308% + 1px) 100.000%);
+            padding: 20px;
+        }
+        main{
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #title{
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 20px;
+            font-style: italic;
+            background: linear-gradient(90deg, #2c1e48 0.000%, #362e4d 20.000%, #4d4e70 40.000%, #6f7288 60.000%, #98927b 80.000%, #c6a357 100.000%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: yellow;
+        }
+
+        /* ---------- Movie table ---------- */
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        thead{
+            background: linear-gradient(90deg, #c6a357, #98927b);
+        }
+        th{
+            padding: 14px;
+            text-align: center;
+            color: #05050a;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        td{
+            padding: 12px;
+            text-align: center;
+            color: ivory;
+            background: rgba(255,255,255,0.06);
+        }
+        tbody tr:nth-child(even) td{
+            background: rgba(255,255,255,0.1);
+        }
+        tbody tr:hover td{
+            background: rgba(198,163,87,0.25);
+            transition: background 0.3s ease;
+        }
+
+        /* ---------- Booking form ---------- */
+        .form-wrapper{
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .form{
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            color: ivory;
+        }
+        .form h2{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #c6a357;
+        }
+        .form-group{
+            margin-bottom: 16px;
+        }
+        .form-group label{
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea{
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(0,0,0,0.3);
+            color: ivory;
+            font-family: inherit;
+        }
+        .snack-options{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .snack-options label{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: normal;
+        }
+        .form-buttons{
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .form-buttons button{
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button[type="submit"]{
+            background: #c6a357;
+            color: #05050a;
+        }
+        button[type="reset"]{
+            background: transparent;
+            border: 1px solid ivory;
+            color: ivory;
+        }
+
+        /* ---------- Cinema rules table ---------- */
+        .rules-table{
+            margin-top: 40px;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .rules-table caption{
+            caption-side: top;
+            font-size: 1.3rem;
+            color: #c6a357;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .rules-table td{
+            text-align: left;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 id="title">Movie Night Ticket Booking</h1>
+
+        <!-- Available Movies -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Genre</th>
+                    <th>Show Time</th>
+                    <th>Ticket Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The Lost City</td>
+                    <td>Adventure</td>
+                    <td>4.00 PM</td>
+                    <td>Rs. 800</td>
+                </tr>
+                <tr>
+                    <td>Midnight Mystery</td>
+                    <td>Mystery</td>
+                    <td>6.30 PM</td>
+                    <td>Rs. 900</td>
+                </tr>
+                <tr>
+                    <td>Future World</td>
+                    <td>Science Fiction</td>
+                    <td>8.00 PM</td>
+                    <td>Rs. 1000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Booking Form -->
+        <div class="form-wrapper">
+            <form class="form" action="#">
+                <h2>Book Your Seats</h2>
+
+                <div class="form-group">
+                    <label for="cust_name">Customer Name:</label>
+                    <input type="text" name="cust_name" id="cust_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="movie">Movie:</label>
+                    <select name="movie" id="movie">
+                        <option value="lost_city">The Lost City</option>
+                        <option value="midnight_mystery">Midnight Mystery</option>
+                        <option value="future_world">Future World</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="no_seats">Number of Seats:</label>
+                    <input type="number" name="no_seats" id="no_seats" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Snacks:</label>
+                    <div class="snack-options">
+                        <label for="popcorn"><input type="checkbox" name="snacks" id="popcorn" value="popcorn"> Popcorn</label>
+                        <label for="softdrink"><input type="checkbox" name="snacks" id="softdrink" value="softdrink"> Soft Drink</label>
+                        <label for="nachos"><input type="checkbox" name="snacks" id="nachos" value="nachos"> Nachos</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="req">Special Requests:</label>
+                    <textarea name="req" id="req" rows="3"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Cinema Rules -->
+        <table class="rules-table">
+            <caption>Cinema Rules &amp; Guidelines</caption>
+            <thead>
+                <tr>
+                    <th colspan="2">General Rules</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Age Restriction</td>
+                    <td>Under 13 must be accompanied by a guardian</td>
+                </tr>
+                <tr>
+                    <td>PG-13 movies restricted without an adult</td>
+                </tr>
+                <tr>
+                    <td>Food Policy</td>
+                    <td>Outside food and drinks are not allowed</td>
+                </tr>
+                <tr>
+                    <td>Phone Usage</td>
+                    <td>Phones must be on silent mode</td>
+                </tr>
+                <tr>
+                    <td>Refunds</td>
+                    <td>No refunds after ticket purchase</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
