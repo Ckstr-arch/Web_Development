@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Night Ticket Booking</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, #34206b 0%, transparent 35%),
+                radial-gradient(circle at bottom right, #0d5b78 0%, transparent 35%),
+                linear-gradient(135deg, #080b16, #111827 50%, #0b1120);
+            color: #f8fafc;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 720px;
+            margin: auto;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.45),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            color: #cbd5e1;
+            font-size: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.55);
+        }
+
+        legend {
+            padding: 0 12px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fbbf24;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-size: 15px;
+            transition: 0.25s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        select option {
+            background: #111827;
+            color: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .option:hover {
+            background: rgba(139, 92, 246, 0.18);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #8b5cf6;
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            transition: 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(236, 72, 153, 0.35);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .required {
+            color: #f87171;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .main {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            fieldset {
+                padding: 20px;
+            }
+
+            .options {
+                flex-direction: column;
+            }
+
+            .option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="header">
+            <div class="icon">🎬</div>
+            <h1>Movie Night Ticket Booking</h1>
+            <p class="subtitle">
+                Book your seats and enjoy an unforgettable movie night!
+            </p>
+        </div>
+
+        <form action="#" method="post">
+
+            <!-- Customer Details -->
+            <fieldset>
+                <legend>👤 Customer Details</legend>
+
+                <div class="form-group">
+                    <label for="name">
+                        Customer Name <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        Email Address <span class="required">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+                </div>
+            </fieldset>
+
+            <!-- Booking Options -->
+            <fieldset>
+                <legend>🎟️ Ticket & Refreshment Options</legend>
+
+                <div class="form-group">
+                    <label for="movie">🎞️ Select Movie</label>
+                    <select id="movie" name="movie" required>
+                        <option value="" disabled selected>
+                            Choose a movie
+                        </option>
+                        <option value="movie1">The Lost City</option>
+                        <option value="movie2">Midnight Mystery</option>
+                        <option value="movie3">Future World</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">📅 Select Date</label>
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="ticket-category">🎫 Ticket Category</label>
+                    <select
+                        id="ticket-category"
+                        name="ticket_category"
+                        required
+                    >
+                        <option value="" disabled selected>
+                            Select ticket category
+                        </option>
+                        <option value="adult">Adult</option>
+                        <option value="child">Child</option>
+                        <option value="senior">Senior</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tickets">🔢 Number of Tickets</label>
+                    <input
+                        type="number"
+                        id="tickets"
+                        name="tickets"
+                        min="1"
+                        max="10"
+                        placeholder="1 - 10"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>💺 Seating Type</label>
+
+                    <div class="options">
+                        <div class="option">
+                            <input
+                                type="radio"
+                                id="regular"
+                                name="seating"
+                                value="regular"
+                                required
+                            >
+                            <label for="regular">Regular</label>
+                        </div>
+
+                        <div class="option">
+                            <input
+                                type="radio"
+                                id="premium"
+                                name="seating"
+                                value="premium"
+                            >
+                            <label for="premium">Premium</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🍿 Select Snacks</label>
+
+                    <div class="options">
+                        <div class="option">
+                            <input
+                                type="checkbox"
+                                id="popcorn"
+                                name="snacks[]"
+                                value="popcorn"
+                            >
+                            <label for="popcorn">🍿 Popcorn</label>
+                        </div>
+
+                        <div class="option">
+                            <input
+                                type="checkbox"
+                                id="soda"
+                                name="snacks[]"
+                                value="soda"
+                            >
+                            <label for="soda">🥤 Soda</label>
+                        </div>
+
+                        <div class="option">
+                            <input
+                                type="checkbox"
+                                id="nachos"
+                                name="snacks[]"
+                                value="nachos"
+                            >
+                            <label for="nachos">🧀 Nachos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="requests">📝 Special Requests</label>
+
+                    <textarea
+                        id="requests"
+                        name="requests"
+                        placeholder="Any special requests or notes?"
+                    ></textarea>
+                </div>
+
+            </fieldset>
+
+            <button type="submit" class="submit-btn">
+                🎟️ Book Tickets
+            </button>
+
+        </form>
+    </div>
+
+</body>
+</html>
