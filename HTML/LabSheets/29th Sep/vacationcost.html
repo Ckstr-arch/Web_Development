@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var days = window.prompt("Please enter the number of days you will be on vacation:");
+        var cost = 0;
+
+        if (days > 0 && days <= 3){
+            cost = 500;
+
+        }
+        else if (days >3 && days < 7){
+            cost = 1200;
+        }
+        else if (days >= 7){
+            cost = 2000;
+        }
+        else{
+            window.alert("Invalid input. Please enter a valid number of days.");
+        }
+
+        alert("The total cost of your vacation is: $" + cost);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
