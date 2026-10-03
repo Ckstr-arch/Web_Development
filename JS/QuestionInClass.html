@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Calculate" onclick="calc()">
+    <h3 id="total">Total: 0</h3>
+    <script>
+        function calc(){
+            var vegitable = Number(window.prompt("Price for Vegitable: "))
+            var drinks = Number(window.prompt("Price for Drinks: "))
+         
+            var tot = (vegitable+drinks);
+        
+            //window.alert("Total: "+ tot);
+            document.getElementById("total").innerHTML = "Total: $"+ tot;
+        }
+    </script>
+</body>
+</html>

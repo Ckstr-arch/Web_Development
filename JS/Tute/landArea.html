@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Land</title>
+</head>
+<body>
+    <script>
+
+        var area = window.prompt("Enter land Area: ");
+        var price = 0;
+
+        if(area < 100){
+            price = 10000;
+        }
+        else if(area >= 100 && area < 200){
+            
+            price = 15000;
+        }
+        else{
+            price = 20000;
+        }
+
+        window.alert("Price: "+ price)
+    </script>
+</body>
+</html>

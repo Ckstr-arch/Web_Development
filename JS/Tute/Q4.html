@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 04</title>
+</head>
+<body>
+    <script>
+        var ball = 200;
+        var bat = 300;
+
+        var b_cnt = 40;//window.prompt("Enter number of balls sold: ");
+        var bt_cnt = 60; //window.prompt("Enter number of bats sold: ");
+
+        var tot = (ball*b_cnt + bat*bt_cnt);
+
+        window.alert("Total Revenue: $"+ tot);
+
+        if (b_cnt > 20 || bt_cnt > 20) {
+            window.alert("Qualifies for discount");
+        } else {
+            window.alert("Does not qualify for discount");
+        }
+    </script>
+</body>
+</html>

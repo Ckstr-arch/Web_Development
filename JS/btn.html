@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button</title>
+</head>
+<body>
+    <p>Click thia button to display the alert!</p>
+    <input type="text" name="name" id="name" placeholder="Enter your name">
+    <input type="button" value="Click here" name="submit" onclick="btnClick()">
+    <script>
+        function btnClick() {
+            var name = document.getElementById("name").value;
+            window.alert("Wzzup, " + name + "!");
+        }
+    </script>
+</body>
+</html>
