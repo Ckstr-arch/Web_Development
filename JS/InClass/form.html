@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroMart Electrical Shop</title>
+    <script src="./form.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 24px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #800000;
+            margin-bottom: 5px;
+        }
+        .welcome-msg {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        fieldset {
+            border: 1px solid #999;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fff;
+        }
+        legend {
+            font-weight: bold;
+            color: #800000;
+            padding: 0 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            border: 1px solid #666;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: lightgray;
+            font-weight: bold;
+        }
+        .tc{
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 15px;
+        }
+        button, input[type="submit"], input[type="reset"] {
+            padding: 6px 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #777;
+            border-radius: 3px;
+        }
+        button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #e0e0e0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            width: 150px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"], .form-group select {
+            width: 250px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-buttons {
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ElectroMart Electrical Shop</h1>
+    <div class="welcome-msg">Welcome to ElectroMart! Find quality electrical products at affordable prices.</div>
+
+    <fieldset>
+        <table id="tbh">
+               <tr>
+                    <td colspan="4" class="tc">ElectroMart Product Information</td>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Offer</th>
+                </tr>
+
+   
+                <tr>
+                    <td rowspan="2">Lighting</td>
+                    <td>LED Bulb</td>
+                    <td>Rs. 1,200</td>
+                    <td>5% Off</td>
+                </tr>
+                <tr>
+                    <td>LED Tube Light</td>
+                    <td>Rs. 2,500</td>
+                    <td>10% Off</td>
+                </tr>
+                <tr>
+                    <td>Electrical</td>
+                    <td>Extension Cord</td>
+                    <td>Rs. 1,300</td>
+                    <td>3% Off</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="tc">Minimum Purchase Amount: Rs. 1,500</td>
+                </tr>
+        </table>
+                
+        <div class="button-group">
+            <button type="button" onclick="shopDetails()">Shop Information</button>
+            <button type="button" onclick="budgetUser()">Check Budget</button>
+            <button type="button" onclick="bill()">Calculate Final Price</button>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>ElectroMart Customer Service Request</legend>
+        <form>
+            <div class="form-group">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" name="customerName">
+            </div>
+            
+            <div class="form-group">
+                <label for="productQuantity">Product Quantity:</label>
+                <input type="text" id="productQuantity" name="productQuantity">
+            </div>
+            
+            <div class="form-group">
+                <label for="contactNumber">Contact Number:</label>
+                <input type="text" id="contactNumber" name="contactNumber">
+            </div>
+            
+            <div class="form-group">
+                <label for="productCategory">Product Category:</label>
+                <select id="productCategory" name="productCategory">
+                    <option value="">--Select Category--</option>
+                    <option value="lighting">Lighting</option>
+                    <option value="electrical">Electrical</option>
+                </select>
+            </div>
+            
+            <div class="form-buttons">
+                <input type="submit" value="Submit Request">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+</body>
+</html>

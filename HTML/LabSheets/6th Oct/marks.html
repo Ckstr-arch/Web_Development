@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Analyzer</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            min-width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Marks Analyzer</h2>
+
+        <button onclick="analyzeMarks()">ENTER MARKS</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function analyzeMarks() {
+
+            var marks = [];
+
+            for (let i = 0; i < 5; i++) {
+
+                var mark = Number(
+                    window.prompt("Enter mark for subject " + (i + 1) + ":")
+                );
+
+                if (isNaN(mark) || mark < 0 || mark > 100) {
+
+                    window.alert(
+                        "Invalid mark entered. Please enter a mark between 0 and 100."
+                    );
+
+                    i--;
+                    continue;
+                }
+
+                marks.push(mark);
+            }
+
+
+            var total = 0;
+            var highest = marks[0];
+            var lowest = marks[0];
+
+
+            for (let j = 0; j < marks.length; j++) {
+
+                total += marks[j];
+
+                if (marks[j] > highest) {
+                    highest = marks[j];
+                }
+
+                if (marks[j] < lowest) {
+                    lowest = marks[j];
+                }
+            }
+
+
+            var average = total / marks.length;
+
+            var grade;
+
+            if (average >= 75) {
+                grade = "A";
+
+            } else if (average >= 65) {
+                grade = "B";
+
+            } else if (average >= 55) {
+                grade = "C";
+
+            } else if (average >= 40) {
+                grade = "S";
+
+            } else {
+                grade = "F";
+            }
+
+
+            document.getElementById("result").innerHTML =
+                "<strong>Total:</strong> " + total + "<br>" +
+                "<strong>Average:</strong> " + average.toFixed(2) + "<br>" +
+                "<strong>Highest:</strong> " + highest + "<br>" +
+                "<strong>Lowest:</strong> " + lowest + "<br>" +
+                "<strong>Grade:</strong> " + grade;
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering System</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 450px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        input[type="checkbox"] {
+            accent-color: #4CAF50;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f8e9;
+            border-left: 5px solid #4CAF50;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <h1>Food Ordering System</h1>
+
+        <form id="orderForm">
+
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <br><br>
+
+            <table>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="burger" value="5">
+                        <label for="burger">Burger</label>
+                    </td>
+                    <td>$5</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="pizza" value="8">
+                        <label for="pizza">Pizza</label>
+                    </td>
+                    <td>$8</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="sandwich" value="4">
+                        <label for="sandwich">Sandwich</label>
+                    </td>
+                    <td>$4</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="softdrink" value="2">
+                        <label for="softdrink">Soft Drink</label>
+                    </td>
+                    <td>$2</td>
+                </tr>
+            </table>
+
+            <br>
+
+            <button type="button" onclick="placeOrder()">
+                Place Order
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+        function placeOrder() {
+
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+
+            var total = 0;
+
+            if (document.getElementById("burger").checked) {
+                total += 5;
+            }
+
+            if (document.getElementById("pizza").checked) {
+                total += 8;
+            }
+
+            if (document.getElementById("sandwich").checked) {
+                total += 4;
+            }
+
+            if (document.getElementById("softdrink").checked) {
+                total += 2;
+            }
+
+            if (name == "")  {
+                alert("Please enter your name ");
+                return;
+            }
+
+            if (phone == "") {
+                alert("Please enter your phone number.");
+                return;
+            }
+
+            if (phone.length != 10) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+
+            if (total == 0) {
+                alert("Please select at least one food item.");
+                return;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Customer Name: " + name + "<br>" +
+                "Phone Number: " + phone + "<br>" +
+                "Total Price: $" + total;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Membership Registration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .form {
+            width: 420px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            color: #333;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .membership {
+            margin: 15px 0;
+        }
+
+        .membership label {
+            margin-right: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+            accent-color: #667eea;
+        }
+
+        .checkbox-group {
+            margin: 12px 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #5568d9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form">
+
+        <h2>Library Membership</h2>
+
+        <form>
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+
+            <br><br>
+
+            <label for="studentID">Student ID:</label>
+            <input type="text" name="studentID" id="studentID">
+
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+
+            <br><br>
+
+            <label for="year">Year of Study:</label>
+            <select name="year" id="year">
+                <option value="default">-- Select an Option --</option>
+                <option value="year1">Year 1</option>
+                <option value="year2">Year 2</option>
+                <option value="year3">Year 3</option>
+                <option value="year4">Year 4</option>
+            </select>
+
+            <br><br>
+
+            <div class="membership">
+                <label>Membership Type:</label>
+                <br><br>
+
+                <input type="radio" name="membership" id="std" value="standard">
+                <label for="std">Standard</label>
+
+                <input type="radio" name="membership" id="pre" value="premium">
+                <label for="pre">Premium</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name="updates" id="chk1">
+                <label for="chk1">Receive Library Updates</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name="rules" id="chk2">
+                <label for="chk2">Agree to Library Rules</label>
+            </div>
+
+            <input
+                type="button"
+                value="Create Membership"
+                class="submit-btn"
+                onclick="validateMembership()"
+            >
+
+        </form>
+    </div>
+
+    <script>
+        function validateMembership() {
+
+            var name = document.getElementById("name").value.trim();
+            var studentID = document.getElementById("studentID").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var year = document.getElementById("year").value;
+            var chk2 = document.getElementById("chk2").checked;
+
+            if (name === "" || studentID === "" || email === "") {
+                alert("Please fill all the required fields.");
+                return;
+            }
+
+            if (year === "default") {
+                alert("Please select a year of study.");
+                return;
+            }
+
+            var memType = document.querySelector(
+                'input[name="membership"]:checked'
+            );
+
+            if (!memType) {
+                alert("Please select a membership type.");
+                return;
+            }
+
+            if (!chk2) {
+                alert("Please agree to the library rules.");
+                return;
+            }
+
+            alert("Name: " + name + "\nStudent ID: " + studentID + "\nEmail: " + email + "\nYear of Study: " + year + "\nMembership Type: " + memType.value);
+        }
+    </script>
+
+</body>
+</html>
