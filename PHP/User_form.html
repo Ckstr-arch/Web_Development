@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+
+      background: linear-gradient(
+        135deg,
+        #000000 0%,
+        #0a0a0a 45%,
+        #1a1a1a 100%
+      );
+
+      color: #fff;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      padding: 35px;
+
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .form-container h1 {
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
+
+    .form-container .subtitle {
+      margin-bottom: 28px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 15px;
+
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      outline: none;
+
+      transition: 0.25s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #777;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    select option {
+      background: #111;
+      color: #fff;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      margin-top: 5px;
+
+      border: none;
+      border-radius: 10px;
+
+      background: linear-gradient(
+        135deg,
+        #ffffff,
+        #cfcfcf
+      );
+
+      color: #000;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .required {
+      color: black;
+    }
+
+    @media (max-width: 550px) {
+      .form-container {
+        padding: 25px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <form class="form-container" method="post" action="form.php">
+    <h1>Enter Your Data</h1>
+    
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">
+          User Name <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="John_Doe"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="pass">
+          Password <span class="required">*</span>
+        </label>
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          placeholder=""
+          required
+        />
+      </div>
+
+    <button type="submit" class="submit-btn">
+      Submit
+    </button>
+  </form>
+
+</body>
+</html>

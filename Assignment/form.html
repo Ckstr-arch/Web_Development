@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information Form</title>
+</head>
+<body>
+    <form action="#" style="font-family: 'Courier New', Courier, monospace; font-size:1rem;">
+        <fieldset>
+            <legend>Patient Information</legend>
+            <br>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="address" >Address:</label>
+            <textarea name="address" id="address" rows="4" required></textarea><br><br>
+
+            <label for="Bday">Birth Date:</label>
+            <input type="date" id="Bday" name="Bday" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="0" required><br><br>
+
+
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">MALE</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">FEMALE</label>
+            <br><br>
+
+            <label for="disease">Disease:</label>
+            <select name="disease" id="disease" required>
+                <option value="">Select</option>
+                <option value="flu">Flu</option>
+                <option value="cold">Cold</option>
+                <option value="covid">COVID-19</option>
+            </select><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="pin">PIN:</label>
+            <input type="password" id="pin" name="pin" required><br><br>
+
+            <input type="submit" value="Submit" onclick="validateForm()">
+        </fieldset>
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value.trim(); //To remove whitespace
+            var address = document.getElementById("address").value.trim();
+            var birthDate = document.getElementById("Bday").value;
+            var age = document.getElementById("age").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var disease = document.getElementById("disease").value;
+            var email = document.getElementById("email").value.trim();
+            var pin = document.getElementById("pin").value;
+
+           if (name == "" || address == "" || birthDate == "" || age == "" || !gender || disease == "" || email == "" || pin == "") {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+            if (age < 0){
+                alert("Age cannot be negative.");
+                return false;
+            }
+            if (pin.length < 4) {
+                alert("PIN must be at least 4 characters long.");
+                return false;
+            }
+
+            return true;
+           }
+        
+    </script>
+</body>
+</html>
