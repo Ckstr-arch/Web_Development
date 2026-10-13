@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Step Goal Checker</title>
+</head>
+<body>
+    <h1>PulseFit Gym - Daily Step Goal Checker</h1>
+
+    <script>
+        let days = Number(prompt("How many days? (1 to 7)"));
+
+        if (!Number.isInteger(days) || days < 1 || days > 7) {
+            alert("Please enter a valid number of days.");
+        } else {
+            let total = 0;
+            let bestSteps = 0;
+            let bestDay = 0;
+            let goalDays = 0;
+            let valid = true;
+
+            for (let i = 1; i <= days; i++) {
+                let answer = prompt("Enter steps for Day " + i);
+                let steps = Number(answer);
+
+                if (answer === null || answer.trim() === "" ||
+                    !Number.isInteger(steps) || steps < 0) {
+                    alert("Please enter a valid number of steps.");
+                    valid = false;
+                    break;
+                }
+
+                total += steps;
+
+                if (i === 1 || steps > bestSteps) {
+                    bestSteps = steps;
+                    bestDay = i;
+                }
+
+                if (steps >= 8000) {
+                    goalDays++;
+                }
+            }
+
+            if (valid) {
+                let average = total / days;
+                let remark;
+
+                if (average >= 8000) {
+                    remark = "Excellent work!";
+                } else if (average >= 5000) {
+                    remark = "Good effort!";
+                } else {
+                    remark = "Keep going!";
+                }
+
+                alert(
+                    "Total steps: " + total +
+                    "\nAverage steps per day: " + average.toFixed(1) +
+                    "\nBest day: Day " + bestDay +
+                    " (" + bestSteps + " steps)" +
+                    "\nDays that reached the goal: " +
+                    goalDays + " out of " + days +
+                    "\n" + remark
+                );
+            }
+        }
+    </script>
+</body>
+</html>

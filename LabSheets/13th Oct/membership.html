@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PulseFit Gym Membership</title>
+</head>
+<body>
+    <h1 style="text-align: center; color: darkgreen;">PulseFit Gym - Membership Application</h1>
+
+    <form style="width: 520px; margin: auto; padding: 20px; background-color: #e8f5e9;" action="#" method="get">
+        <fieldset>
+            <legend><b>Personal Details</b></legend>
+            <br>
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="e.g. Nimali Perera" required style="width: 80%;"><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" style="width: 80%;"><br><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone"><br><br>
+
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br><br>
+        </fieldset>
+
+        <br>
+        <fieldset>
+            <legend><b>Membership Details</b></legend>
+            <br>
+            <label for="plan">Membership Plan:</label><br>
+            <select id="plan" name="plan">
+                <option value="">-- Select a Plan --</option>
+                <option value="basic">Basic</option>
+                <option value="premium">Premium</option>
+            </select><br><br>
+
+            <label>Duration:</label><br>
+            <input type="radio" id="one" name="duration" value="1 Month">
+            <label for="one">1 Month</label>
+            <input type="radio" id="three" name="duration" value="3 Months">
+            <label for="three">3 Months</label>
+            <input type="radio" id="six" name="duration" value="6 Months">
+            <label for="six">6 Months</label>
+            <input type="radio" id="twelve" name="duration" value="12 Months">
+            <label for="twelve">12 Months</label><br><br>
+
+            <label>Add-on Facilities:</label><br>
+            <input type="checkbox" id="pool" name="pool">
+            <label for="pool">Swimming Pool</label>
+            <input type="checkbox" id="sauna" name="sauna">
+            <label for="sauna">Sauna</label>
+            <input type="checkbox" id="trainer" name="trainer">
+            <label for="trainer">Personal Trainer</label><br><br>
+
+            <label for="goals">Health Goals:</label><br>
+            <textarea id="goals" name="goals" rows="4" placeholder="Tell us what you want to achieve" style="width: 98%;"></textarea><br><br>
+        </fieldset>
+
+        <br>
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">I agree to the gym rules and regulations.</label><br><br>
+
+        <div style="text-align: center;">
+            <button type="submit" style="background-color: forestgreen; color: white; padding: 10px 20px; border: none;">Register</button>
+            <button type="reset" style="background-color: gray; color: white; padding: 10px 20px; border: none;">Clear Form</button>
+        </div>
+        <br>
+    </form>
+</body>
+</html>

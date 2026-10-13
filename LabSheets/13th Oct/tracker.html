@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Calorie Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Workout Calorie Tracker</h1>
+
+    <div class="tracker">
+        <label for="exercise">Exercise:</label>
+        <select id="exercise">
+            <option value="10">Running</option>
+            <option value="8">Cycling</option>
+            <option value="9">Swimming</option>
+            <option value="4">Yoga</option>
+        </select>
+
+        <label for="minutes">Minutes:</label>
+        <input type="number" id="minutes" min="1">
+
+        <button onclick="addWorkout()">Add Workout</button>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Exercise</th>
+                    <th>Minutes</th>
+                    <th>Calories</th>
+                </tr>
+            </thead>
+            <tbody id="workouts">
+            </tbody>
+        </table>
+
+        <p id="total">Total calories burned: 0 kcal</p>
+    </div>
+
+    <script>
+        let totalCalories = 0;
+        let count = 0;
+
+        function calculateCalories(caloriesPerMinute, minutes) {
+            return caloriesPerMinute * minutes;
+        }
+
+        function addWorkout() {
+            let exercise = document.getElementById("exercise");
+            let minutes = Number(document.getElementById("minutes").value);
+
+            if (minutes < 1 || isNaN(minutes)) {
+                alert("Please enter valid minutes!");
+                return;
+            }
+
+            let name = exercise.options[exercise.selectedIndex].text;
+            let caloriesPerMinute = Number(exercise.value);
+
+            let calories = calculateCalories(caloriesPerMinute, minutes);
+
+            count++;
+            totalCalories += calories;
+
+            let table = document.getElementById("workouts");
+            let row = table.insertRow();
+
+            row.insertCell(0).innerText = count;
+            row.insertCell(1).innerText = name;
+            row.insertCell(2).innerText = minutes;
+            row.insertCell(3).innerText = calories;
+
+            let message = "Total calories burned: " + totalCalories + " kcal";
+
+            if (totalCalories >= 500) {
+                message += " - Goal reached!";
+            }
+
+            document.getElementById("total").innerText = message;
+            document.getElementById("minutes").value = "";
+        }
+    </script>
+</body>
+</html>
