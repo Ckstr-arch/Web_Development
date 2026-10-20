@@ -1,0 +1,21 @@
+/* Prepared for Task 7. No table is shown yet in Task 4. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #0b132b;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #0b132b;
+    color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #39ff88;
+}

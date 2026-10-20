@@ -1,0 +1,52 @@
+/* Contact page styles only. */
+form {
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #0b132b;
+    border-radius: 12px;
+    font: inherit;
+    color: #0b132b;
+    background-color: #f2f2f2;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form input:focus-visible,
+form textarea:focus-visible {
+    outline: 2px solid #0b132b;
+    outline-offset: 2px;
+}
+
+form button {
+    align-self: flex-start;
+    margin-top: 12px;
+    padding: 12px 20px;
+    background-color: #0b132b;
+    color: #39ff88;
+    border: 1px solid #0b132b;
+    border-radius: 14px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover,
+form button:focus-visible {
+    background-color: #39ff88;
+    color: #0b132b;
+}
